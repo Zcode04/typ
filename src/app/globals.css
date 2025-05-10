@@ -1,3 +1,6 @@
+
+/* globals.css */
+
 @import "tailwindcss";
 @plugin "flowbite-react/plugin/tailwindcss";
 @source "../../.flowbite-react/class-list.json";
@@ -12,6 +15,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-base: var(--font-tajawal); /* نجمع كل الخطوط الأساسية هنا */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,5 +28,11 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* نطبق خط Tajawal كخط أساسي */
+  font-family: var(--font-base), Arial, Helvetica, sans-serif;
+}
+
+/* إذا أردت التأكد أن كل الكروت تستخدم نفس الخط: */
+.card, .card * {
+  font-family: var(--font-base) !important;
 }
