@@ -57,12 +57,12 @@ export default function CardWithModal() {
   const [likedIndex, setLikedIndex] = useState<number | null>(null);
   const [dislikedIndex, setDislikedIndex] = useState<number | null>(null);
 
-  // تنسيق التاريخ
+  // تنسيق التاريخ باللغة اللاتينية
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return new Intl.DateTimeFormat('ar-SA', {
+    return new Intl.DateTimeFormat('en-US', {
       year: 'numeric',
-      month: 'long',
+      month: 'short',
       day: 'numeric',
       hour: '2-digit',
       minute: '2-digit'
@@ -215,7 +215,7 @@ export default function CardWithModal() {
                   />
                 </div>
                 <div className="p-4">
-                  <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  <h5 className="mb-2 text-xl font-bold tracking-tight text-green-500 dark:text-green-500">
                     {post.title}
                   </h5>
                   <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm line-clamp-2 h-10 overflow-hidden">
@@ -224,9 +224,9 @@ export default function CardWithModal() {
                   {/* إضافة عنصر تاريخ النشر هنا */}
                   <div className="flex items-center mb-3 text-gray-500 dark:text-gray-400 text-xs">
                     <Calendar size={14} className="ml-1" />
-                    <span dir="rtl">{formatDate(post.publishedAt)}</span>
+                    <span>{formatDate(post.publishedAt)}</span>
                   </div>
-                  <div className="text-blue-500 text-xs font-medium hover:underline mb-2">اقرأ المزيد...</div>
+                  <div className="text-green-500 text-xs font-medium hover:underline mb-2">اقرأ المزيد...</div>
                   {/* like/dislike */}
                   <div className="flex items-center space-x-4">
                     <button
@@ -281,7 +281,7 @@ export default function CardWithModal() {
                         {/* إضافة تاريخ النشر في النافذة المنبثقة */}
                         <div className="flex items-center mt-2 text-white/80 text-sm">
                           <Calendar size={16} className="ml-1" />
-                          <span dir="rtl">{formatDate(post.publishedAt)}</span>
+                          <span>{formatDate(post.publishedAt)}</span>
                         </div>
                       </div>
                       <button
@@ -289,7 +289,7 @@ export default function CardWithModal() {
                           e.stopPropagation();
                           setOpenIndex(null);
                         }}
-                        className="absolute top-3 right-3 bg-black/30 hover:bg-black/50 text-white rounded-full p-1 transition-colors"
+                        className="absolute top-3 right-3 bg-green-500 hover:bg-black/50 text-white rounded-full p-1 transition-colors"
                       >
                         <X size={20} />
                       </button>
@@ -301,7 +301,7 @@ export default function CardWithModal() {
                       <div className="mt-6 flex justify-end">
                         <button
                           onClick={() => setOpenIndex(null)}
-                          className="px-4 py-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 rounded-md text-sm font-medium transition-colors"
+                          className="px-4 py-2 bg-green-500 hover:bg-gray-300 dark:bg-green-500 dark:hover:bg-gray-600 rounded-md text-sm font-medium transition-colors"
                         >
                           إغلاق
                         </button>
